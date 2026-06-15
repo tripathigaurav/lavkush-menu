@@ -131,6 +131,8 @@ button {
   margin: 0 auto var(--spacing-md);
   border-radius: 50%;
   animation: splashLogoScale 0.8s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  background: white;
+  padding: 3px;
 }
 
 .splash-title {
@@ -213,6 +215,8 @@ button {
   border-radius: 50%;
   box-shadow: var(--shadow-lg);
   border: 3px solid var(--accent-gold);
+  background: white;
+  padding: 3px;
 }
 
 .hero-title {
@@ -702,6 +706,8 @@ button {
   margin: 0 auto var(--spacing-md);
   border-radius: 50%;
   border: 2px solid var(--accent-gold);
+  background: white;
+  padding: 2px;
 }
 
 .footer h3 {
