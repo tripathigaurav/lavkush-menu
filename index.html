@@ -6,9 +6,6 @@
   <meta name="description" content="Lavkush Restaurant - Pure Veg Family Restaurant in Ayodhya. Digital menu with Hindi and English options.">
   <meta name="theme-color" content="#9B1B30">
   
-  <!-- Security: Content Security Policy -->
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; script-src 'self'; connect-src 'self';">
-  
   <title>Lavkush Restaurant - Digital Menu | Pure Veg Family Restaurant</title>
   
   <!-- Preconnect to Google Fonts -->
@@ -21,6 +18,9 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css">
   
+  <!-- Preload logo -->
+  <link rel="preload" as="image" href="assets/logo.png" type="image/png">
+  
   <!-- Favicon placeholder -->
   <link rel="icon" href="assets/logo.png" type="image/png">
 </head>
@@ -30,8 +30,8 @@
   <div id="splash-screen" class="splash-screen">
     <div class="splash-content">
       <img src="assets/logo.png" alt="Lavkush Restaurant Logo" class="splash-logo">
-      <h1 class="splash-title">Lavkush Restaurant</h1>
-      <p class="splash-subtitle">Pure Veg Family Restaurant</p>
+      <h1 class="splash-title" data-translate="restaurant_name">Lavkush Restaurant</h1>
+      <p class="splash-subtitle" data-translate="family_restaurant">Family Restaurant</p>
     </div>
   </div>
 
@@ -43,19 +43,25 @@
       <div class="container">
         <img src="assets/logo.png" alt="Lavkush Restaurant Logo" class="hero-logo">
         <h1 class="hero-title" data-translate="restaurant_name">Lavkush Restaurant</h1>
-        <p class="hero-subtitle" data-translate="tagline">Pure Veg Family Restaurant</p>
+        
+        <!-- Pure Veg Trust Badge -->
+        <div class="pure-veg-badge">
+          <span class="veg-dot-large"></span>
+          <span class="veg-badge-text" data-translate="pure_veg_badge">100% Pure Vegetarian</span>
+        </div>
+        <p class="hero-family" data-translate="family_restaurant">Family Restaurant</p>
+        
+        <p class="opening-hours" data-translate="opening_hours">
+          🕐 Open Daily: 7:00 AM - 11:00 PM
+        </p>
         
         <div class="hero-info">
           <p class="location" data-translate="location">
             📍 Near Karsevakpuram, Ramghat Chauraha, Parikrama Marg, Ayodhya - 224123
           </p>
-        </div>
-        
-        <div class="hero-actions">
-          <a href="#menu" class="btn btn-primary" data-translate="view_menu">View Menu</a>
-          <a href="tel:+918858709877" class="btn btn-secondary">
-            <span data-translate="call">Call</span> 📞
-          </a>
+          <p class="phone-contact">
+            📞 <a href="tel:+918858709877" class="phone-link">88587-09877</a>
+          </p>
         </div>
         
         <!-- Language Toggle -->
@@ -68,7 +74,7 @@
 
     <!-- Sticky Navigation -->
     <nav class="category-nav" id="category-nav">
-      <div class="container">
+      <div class="container nav-container">
         <div class="nav-scroll">
           <button class="nav-tab active" data-category="breakfast">
             <span class="nav-icon">☀️</span>
@@ -220,13 +226,13 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-content">
-          <img src="assets/logo.png" alt="Lavkush Restaurant" class="footer-logo">
+          <img src="assets/logo.png" loading="lazy" alt="Lavkush Restaurant" class="footer-logo">
           <h3>Lavkush Restaurant</h3>
           <p data-translate="footer_pure_veg">शुद्ध शाकाहारी पारिवारिक रेस्टोरेंट</p>
           <p data-translate="footer_taste">स्वाद शुद्ध, सेवा उत्तम</p>
           <div class="footer-contact">
             <p>📞 88587-09877</p>
-            <p>📍 Near Ram Mandir, Ayodhya - 224123</p>
+            <p>📍 Near Karsevakpuram, Ramghat Chauraha, Parikrama Marg, Ayodhya - 224123</p>
           </div>
         </div>
       </div>
@@ -241,7 +247,7 @@
         <path d="M22 16.92V19.92C22 20.4728 21.5523 20.92 21 20.92H19C10.1634 20.92 3 13.7566 3 4.92V2.92C3 2.36772 3.44772 1.92 4 1.92H7C7.55228 1.92 8 2.36772 8 2.92V6.92C8 7.47228 7.55228 7.92 7 7.92H6C6 13.4428 10.4772 17.92 16 17.92V16.92C16 16.3677 16.4477 15.92 17 15.92H21C21.5523 15.92 22 16.3677 22 16.92Z" fill="currentColor"/>
       </svg>
     </a>
-    <a href="https://wa.me/918858709877" class="fab fab-whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
+    <a href="https://wa.me/918858709877?text=%E0%A4%A8%E0%A4%AE%E0%A4%B8%E0%A5%8D%E0%A4%A4%E0%A5%87%21%20%E0%A4%AE%E0%A5%88%E0%A4%82%20%E0%A4%91%E0%A4%B0%E0%A5%8D%E0%A4%A1%E0%A4%B0%20%E0%A4%95%E0%A4%B0%E0%A4%A8%E0%A4%BE%20%E0%A4%9A%E0%A4%BE%E0%A4%B9%E0%A4%A4%E0%A4%BE%20%E0%A4%B9%E0%A5%82%E0%A4%81%E0%A5%A4" class="fab fab-whatsapp" aria-label="WhatsApp" target="_blank" rel="noopener noreferrer">
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M12 2C6.477 2 2 6.477 2 12C2 13.89 2.525 15.66 3.438 17.168L2.546 20.2C2.49478 20.3741 2.49141 20.5587 2.53624 20.7346C2.58107 20.9104 2.67245 21.0709 2.80076 21.1992C2.92907 21.3276 3.08958 21.4189 3.26542 21.4638C3.44125 21.5086 3.62592 21.5052 3.8 21.454L6.832 20.562C8.39074 21.5051 10.1782 22.0025 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2ZM16.243 14.757C16.243 14.757 15.728 15.858 14.015 15.986C13.495 16.015 12.837 15.992 12.032 15.666C11.548 15.477 10.944 15.222 10.235 14.811C8.417 13.816 7.253 11.926 7.157 11.797C7.066 11.673 6.4 10.818 6.4 9.929C6.4 9.04 6.869 8.604 7.058 8.405C7.248 8.206 7.469 8.153 7.616 8.153C7.763 8.153 7.91 8.154 8.037 8.16C8.174 8.167 8.358 8.11 8.539 8.549C8.728 9.007 9.155 9.896 9.207 10.001C9.26 10.106 9.302 10.227 9.228 10.351C9.154 10.475 9.112 10.554 9.016 10.665C8.92 10.776 8.815 10.915 8.729 11.007C8.633 11.108 8.533 11.217 8.647 11.417C8.761 11.617 9.151 12.27 9.738 12.794C10.5 13.471 11.122 13.694 11.332 13.789C11.542 13.884 11.663 13.863 11.777 13.738C11.891 13.613 12.271 13.165 12.396 12.966C12.521 12.767 12.646 12.798 12.835 12.872C13.024 12.946 13.911 13.382 14.121 13.487C14.331 13.592 14.468 13.644 14.52 13.728C14.572 13.812 14.572 14.27 14.383 14.798L16.243 14.757Z" fill="currentColor"/>
       </svg>

@@ -21,10 +21,7 @@
   const translations = {
     en: {
       restaurant_name: 'Lavkush Restaurant',
-      tagline: 'Pure Veg Family Restaurant',
       location: '📍 Near Karsevakpuram, Ramghat Chauraha, Parikrama Marg, Ayodhya - 224123',
-      view_menu: 'View Menu',
-      call: 'Call',
       search_placeholder: 'Search menu...',
       cat_breakfast: 'Breakfast',
       cat_sabzi: 'Lunch / Dinner',
@@ -43,14 +40,15 @@
       footer_pure_veg: 'Pure Veg Family Restaurant',
       footer_taste: 'Pure Taste, Excellent Service',
       half: 'Half',
-      full: 'Full'
+      full: 'Full',
+      popular: 'Popular',
+      pure_veg_badge: '100% Pure Vegetarian',
+      family_restaurant: 'Family Restaurant',
+      opening_hours: '🕐 Open Daily: 7:00 AM - 11:00 PM'
     },
     hi: {
       restaurant_name: 'लवकुश रेस्टोरेंट',
-      tagline: 'शुद्ध शाकाहारी पारिवारिक रेस्टोरेंट',
       location: '📍 कर्सेवकपुरम, रामघाट चौराहा, परिक्रमा मार्ग, अयोध्या धाम - 224123 के पास',
-      view_menu: 'मेन्यू देखें',
-      call: 'कॉल करें',
       search_placeholder: 'मेन्यू खोजें...',
       cat_breakfast: 'नाश्ता',
       cat_sabzi: 'सब्जियाँ',
@@ -69,7 +67,11 @@
       footer_pure_veg: 'शुद्ध शाकाहारी पारिवारिक रेस्टोरेंट',
       footer_taste: 'स्वाद शुद्ध, सेवा उत्तम',
       half: 'हाफ',
-      full: 'फुल'
+      full: 'फुल',
+      popular: 'लोकप्रिय',
+      pure_veg_badge: '१००% शुद्ध शाकाहारी',
+      family_restaurant: 'पारिवारिक रेस्टोरेंट',
+      opening_hours: '🕐 प्रतिदिन खुला: सुबह 7:00 - रात 11:00'
     }
   };
 
@@ -116,7 +118,7 @@
     const itemDiv = document.createElement('div');
     itemDiv.className = 'menu-item';
     itemDiv.dataset.itemId = item.id;
-    itemDiv.dataset.searchable = `${item.name_en.toLowerCase()} ${item.name_hi}`;
+    itemDiv.dataset.searchable = `${item.name_en.toLowerCase()} ${item.name_hi} ${item.desc_en?.toLowerCase() || ''} ${item.desc_hi || ''}`;
     
     // Add thali class for special styling
     if (category === 'thali') {
@@ -129,7 +131,7 @@
     let html = `
       <div class="menu-item-header">
         <h3 class="menu-item-title">${sanitizeText(name)}</h3>
-        ${item.popular ? '<span class="popular-badge">Popular</span>' : ''}
+        ${item.popular ? `<span class="popular-badge">${translations[state.currentLang].popular}</span>` : ''}
       </div>
     `;
     
@@ -310,7 +312,9 @@
     const section = document.getElementById(`section-${categoryId}`);
     if (!section) return;
     
-    const navHeight = 160; // Approximate height of sticky nav + search
+    const navEl = document.getElementById('category-nav');
+    const searchEl = document.getElementById('search-container');
+    const navHeight = (navEl?.offsetHeight || 0) + (searchEl?.offsetHeight || 0) + 8;
     const sectionTop = section.offsetTop - navHeight;
     
     window.scrollTo({
@@ -444,7 +448,8 @@
     // Setup intersection observer for nav highlighting
     setupIntersectionObserver();
     
-    console.log('Lavkush Restaurant Menu initialized successfully!');
+    // Show main content after render (splash handled by CSS animation)
+    document.getElementById('main-content').style.opacity = '1';
   }
 
   // ================================

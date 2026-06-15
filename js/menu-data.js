@@ -1,6 +1,12 @@
 // Lavkush Restaurant Menu Data
 // All prices from Hindi menu (source of truth)
 // Popular badge on all Paneer items, Thalis, and Paneer Chowmein
+//
+// Menu Item Schema:
+// - id, name_en, name_hi, desc_en, desc_hi
+// - price_half, price_full, price_single (use null if not applicable)
+// - popular: boolean (show popular badge)
+// - image_url: string|null (item photo URL, for future use)
 
 window.MENU_DATA = {
   breakfast: [
@@ -13,7 +19,8 @@ window.MENU_DATA = {
       price_half: null,
       price_full: null,
       price_single: 20,
-      popular: false
+      popular: false,
+      image_url: null  // For future food photos
     },
     {
       id: "coffee",

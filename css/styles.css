@@ -66,7 +66,7 @@ body {
   font-family: var(--font-body);
   background: var(--bg-primary);
   color: var(--text-primary);
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -186,16 +186,9 @@ button {
   }
 }
 
-/* Main content hidden initially */
+/* Main content hidden initially - animation handled in JS */
 .main-content {
   opacity: 0;
-  animation: mainContentFadeIn 0.5s ease 2s forwards;
-}
-
-@keyframes mainContentFadeIn {
-  to {
-    opacity: 1;
-  }
 }
 
 /* ================================
@@ -234,6 +227,60 @@ button {
   margin-bottom: var(--spacing-lg);
 }
 
+/* Pure Veg Badge */
+.pure-veg-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(34, 139, 34, 0.12);
+  border: 2px solid #22C55E;
+  border-radius: var(--radius-full);
+  padding: 10px 24px;
+  margin-bottom: var(--spacing-md);
+}
+
+.veg-dot-large {
+  width: 22px;
+  height: 22px;
+  border: 2.5px solid #22C55E;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.veg-dot-large::after {
+  content: '';
+  width: 12px;
+  height: 12px;
+  background: #22C55E;
+  border-radius: 50%;
+  display: block;
+}
+
+.veg-badge-text {
+  font-size: 15px;
+  font-weight: 700;
+  color: #22C55E;
+  letter-spacing: 0.3px;
+}
+
+.hero-family {
+  font-size: 13px;
+  color: var(--text-secondary);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-top: 4px;
+  margin-bottom: var(--spacing-lg);
+}
+
+.opening-hours {
+  color: var(--text-secondary);
+  font-size: 14px;
+  margin-bottom: var(--spacing-lg);
+}
+
 .hero-info {
   margin-bottom: var(--spacing-lg);
 }
@@ -244,12 +291,22 @@ button {
   margin-bottom: var(--spacing-xs);
 }
 
-.hero-actions {
-  display: flex;
-  gap: var(--spacing-sm);
-  justify-content: center;
-  margin-bottom: var(--spacing-lg);
-  flex-wrap: wrap;
+.phone-contact {
+  color: var(--text-secondary);
+  margin-top: var(--spacing-sm);
+  font-size: 1.1rem;
+}
+
+.phone-link {
+  color: var(--accent-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color var(--transition-fast);
+}
+
+.phone-link:hover {
+  color: var(--text-primary);
+  text-decoration: underline;
 }
 
 .btn {
@@ -361,19 +418,9 @@ button {
 }
 
 .nav-tab.active {
+  background: rgba(155, 27, 48, 0.2);
   color: var(--accent-gold);
-}
-
-.nav-tab.active::after {
-  content: '';
-  position: absolute;
-  bottom: -12px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 32px;
-  height: 3px;
-  background: var(--accent-maroon);
-  border-radius: 3px 3px 0 0;
+  border-radius: var(--radius-sm);
 }
 
 .nav-tab:hover:not(.active) {
@@ -552,7 +599,7 @@ button {
 }
 
 .menu-item-title {
-  font-size: 16px;
+  font-size: 18px;
   font-weight: 600;
   color: var(--text-primary);
   flex: 1;
@@ -595,8 +642,8 @@ button {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-full);
   padding: 6px var(--spacing-md);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--accent-gold);
   display: inline-flex;
   align-items: center;
@@ -737,10 +784,6 @@ button {
 @media (min-width: 480px) {
   .menu-grid {
     grid-template-columns: repeat(2, 1fr);
-  }
-  
-  .hero-actions {
-    flex-wrap: nowrap;
   }
 }
 
